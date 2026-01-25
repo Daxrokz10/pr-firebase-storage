@@ -1,0 +1,146 @@
+/* Card feel */
+.book-table {
+  background: linear-gradient(135deg, #ffffff, #f0fdf4);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid #d1fae5; 
+  box-shadow: 0 20px 60px rgba(16, 185, 129, 0.1);
+}
+
+/* Soft striped cells */
+.book-table tbody tr:nth-child(odd) td {
+  background-color: #f0fdf4;
+}
+
+.book-table tbody tr:nth-child(even) td {
+  background-color: #ffffff;
+}
+
+/* Hover overrides stripes */
+.book-table tbody tr:hover td {
+  background-color: #dcfce7;
+  transition: background-color 0.2s ease;
+}
+
+/* Caption */
+.book-table caption h2 {
+  font-weight: 800;
+  color: #047857;
+  margin-bottom: 1.5rem;
+  text-decoration: underline;
+  text-decoration-color: #10b981;
+  text-underline-offset: 12px;
+  text-decoration-thickness: 4px;
+  font-size: 2rem;
+}
+
+/* Header */
+.book-table thead {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.book-table th {
+  font-weight: 700;
+  color: #ffffff;
+  padding: 1rem 0.9rem;
+  border: none;
+  text-transform: capitalize;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+/* Rows */
+.book-table td {
+  padding: 1rem 0.9rem;
+  vertical-align: middle;
+  border-top: 1px solid #e5e7eb;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.book-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.book-table tbody tr:hover {
+  background-color: #dcfce7;
+}
+
+/* Empty state */
+.book-table .text-muted {
+  padding: 2rem 1.5rem;
+  font-style: italic;
+  color: #9ca3af;
+  text-align: center;
+}
+
+/* Actions */
+.action-cell {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+/* Custom buttons */
+.btn-danger-outline {
+  border: 2px solid #ef4444;
+  color: #dc2626;
+  background: transparent;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.btn-danger-outline:hover {
+  background: #ef4444;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
+}
+
+.btn-warning-outline {
+  border: 2px solid #3b82f6;
+  color: #1d4ed8;
+  background: transparent;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.btn-warning-outline:hover {
+  background: #3b82f6;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .book-table {
+    font-size: 0.9rem;
+    border-radius: 12px;
+  }
+
+  .book-table caption h2 {
+    font-size: 1.5rem;
+  }
+
+  .book-table th {
+    padding: 0.75rem 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .book-table td {
+    padding: 0.75rem 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .action-cell {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

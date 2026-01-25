@@ -1,0 +1,80 @@
+
+/* Form card */
+.book-form {
+  background: linear-gradient(135deg, #ffffff, #f0fdf4);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(16, 185, 129, 0.1);
+  border: 2px solid #d1fae5;
+}
+
+/* Heading */
+.book-form h2 {
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #047857;
+  text-decoration: underline;
+  text-decoration-color: #10b981;
+  text-underline-offset: 12px;
+  text-decoration-thickness: 4px;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+/* Labels */
+.book-form .form-label {
+  font-weight: 600;
+  color: #065f46;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+}
+
+/* Inputs */
+.book-form .form-control {
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  border: 2px solid #d1fae5;
+  background: #f0fdf4;
+  transition: all 0.25s ease;
+  font-size: 0.95rem;
+}
+
+.book-form .form-control:focus {
+  border-color: #10b981;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+  outline: none;
+}
+
+/* Submit button */
+.book-form .btn-primary {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.9rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: none;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #ffffff;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.book-form .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, #059669, #047857);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .book-form {
+    padding: 2rem;
+  }
+
+  .book-form h2 {
+    font-size: 1.5rem;
+  }
+}

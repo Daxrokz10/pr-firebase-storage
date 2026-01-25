@@ -1,0 +1,86 @@
+/* Wrapper */
+.navbar {
+  background: linear-gradient(135deg, #10b981, #059669, #047857);
+  padding: 1.2rem 0;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+  border-bottom: 3px solid #05a370;
+}
+
+/* Brand */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ffffff !important;
+  text-transform: uppercase;
+}
+
+.navbar-brand:hover {
+  color: #ecfdf5;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Links */
+.custom-link {
+  color: #d1fae5;
+  font-weight: 600;
+  margin-right: 2rem;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+  font-size: 0.95rem;
+  text-transform: capitalize;
+}
+
+.custom-link:hover {
+  color: #ffffff;
+}
+
+/* Underline animation */
+.custom-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #06d6a0, #118b6f);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.custom-link:hover::after {
+  width: 100%;
+}
+
+/* Active link */
+.custom-link.active {
+  color: #ffffff !important;
+}
+
+.custom-link.active::after {
+  width: 100%;
+  background: linear-gradient(90deg, #06d6a0, #118b6f);
+}
+
+/* Mobile */
+@media (max-width: 991px) {
+  .navbar {
+    padding: 1rem 0;
+  }
+
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
+
+  .custom-link {
+    margin-right: 0;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .custom-link::after {
+    display: none;
+  }
+}
