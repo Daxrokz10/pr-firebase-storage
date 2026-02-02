@@ -3,13 +3,28 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import AddBook from "./components/AddBook";
 import ViewBooks from "./components/ViewBooks";
 import Header from "./components/Header";
-import { db } from "./firebase/config";
+import Login from "./components/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { db, auth } from "./firebase/config";
 import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
 
 const App = () => {
   const [book, setBook] = useState({});
   const [list, setList] = useState([]);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+
+  // Check user authentication state
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   // Create Book in Firestore
   const createBook = async (book) => {
@@ -90,29 +105,33 @@ const App = () => {
 
   return (
     <>
-      <Header />
-      <Routes>
-        <Route
-          index
-          element={
-            <AddBook
-              handleChange={handleChange}
-              handleSubmit={handleSubmit}
-              book={book}
+      {loading ? (
+        <div className="container mt-5 text-center">
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      ) : (
+        <>
+          <Header user={user} />
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/view-books" element={<ViewBooks list={list} handleEdit={handleEdit} deleteBook={deleteBook} />} />
+            <Route
+              index
+              element={
+                <ProtectedRoute user={user}>
+                  <AddBook
+                    handleChange={handleChange}
+                    handleSubmit={handleSubmit}
+                    book={book}
+                  />
+                </ProtectedRoute>
+              }
             />
-          }
-        />
-        <Route
-          path="/view-books"
-          element={
-            <ViewBooks
-              handleEdit={handleEdit}
-              deleteBook={deleteBook}
-              list={list}
-            />
-          }
-        />
-      </Routes>
+          </Routes>
+        </>
+      )}
     </>
   );
 };
